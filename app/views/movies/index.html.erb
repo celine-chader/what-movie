@@ -1,0 +1,9 @@
+<% @movies.each do |movie| %>
+  <%= movie.title %>
+  <ol>
+    <li>Year : <%= movie.year %></li>
+    <li>Director : <%= movie.director %></li>
+    <li>Description : <%= movie.description %></li>
+    <li>Category : <%= movie.category %></li>
+  </ol>
+<% end %>

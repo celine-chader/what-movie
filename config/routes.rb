@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: "pages#home"
+
   get "/movies", to: "movies#index"
   get "/movies/:id", to: "movies#show"
 
@@ -16,5 +17,4 @@ Rails.application.routes.draw do
   patch "/lists/:id", to: "lists#update"
   delete "/lists/:id", to: "lists#destroy"
 
-  get "/"
 end

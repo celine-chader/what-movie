@@ -1,5 +1,5 @@
 <% @movies.each do |movie| %>
-  <%= movie.title %>
+  <%= link_to movie.title, movie_path(movie) %>
   <ol>
     <li>Year : <%= movie.year %></li>
     <li>Director : <%= movie.director %></li>
@@ -7,3 +7,6 @@
     <li>Category : <%= movie.category %></li>
   </ol>
 <% end %>
+
+<%= link_to "Home", root_path %>
+

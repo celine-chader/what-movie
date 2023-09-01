@@ -5,9 +5,9 @@
 <%= @movie.category %>
 
 <%= simple_form_for [@movie, @favorite] do|f|%>
-	<%= f.input :content %>
-  <%= f.association :lists %>
+  <%= f.association :list %>
 	<%= f.submit "add this movie to my list"%>
 <%end%>
 
 <%= link_to "Back to movies", movies_path %>
+<%= link_to "Home", root_path %>

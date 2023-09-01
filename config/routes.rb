@@ -11,17 +11,13 @@ Rails.application.routes.draw do
     resources :favorites, only: [:new, :create]
   end
 
-  resources :bookmarks, only: :destroy
-
   get "/lists", to: "lists#index"
   get "/lists/new", to: "lists#new", as: :new_list
+  get "lists/:id", to: "lists#show", as: :list
   post "/lists", to: "lists#create"
   get "/lists/:id/edit", to: "lists#edit", as: :edit_list
   patch "/lists/:id", to: "lists#update"
-  delete "/lists/:id", to: "lists#destroy"
+  delete "/lists/:id", to: "lists#destroy", as: :destroy_list
 
-  resources :lists, only: [:show] do
-    resources :favorites, only: [:destroy]
-  end
-
+  delete "/favorites/:id", to: "favorites#destroy", as: :destroy_fav
 end

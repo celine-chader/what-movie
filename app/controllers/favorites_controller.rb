@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @favorite = Favorite.new(favorite_params)
     @favorite.movie = @movie
-    @favorite.list = @list
+    @list = @favorite.list
     if @favorite.save
       redirect_to movie_path(@movie)
     else
@@ -21,14 +21,13 @@ class FavoritesController < ApplicationController
 
   def destroy
     @favorite = Favorite.find(params[:id])
-    @list = @favorite.list
     @favorite.destroy
-    redirect_to list_path(@list), status: :see_other
+    redirect_to list_path(@favorite.list), status: :see_other
   end
 
   private
 
   def favorite_params
-    params.require[:favorite].permit(:list_id)
+    params.require(:favorite).permit(:list_id)
   end
 end

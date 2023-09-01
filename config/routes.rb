@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get "/movies", to: "movies#index"
   get "/movies/:id", to: "movies#show"
   get "/lists", to: "lists#index"
-  get "/lists", to: "lists#new", as: :new_list
-  get "/lists/:id", to: "lists#show"
+  get "/lists/new", to: "lists#new", as: :new_list
+  get "/lists/:id", to: "lists#show", as: :list
   post "/lists", to: "lists#create"
   get "/lists/:id/edit", to: "lists#edit", as: :edit_list
   patch "/lists/:id", to: "lists#update"

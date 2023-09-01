@@ -1,3 +1,7 @@
 <% @lists.each do |list| %>
-  <%= list.name %>
+  <ul>
+    <li><%= list.name %></li>
+  </ul>
 <% end %>
+
+<%= link_to "Home", root_path %>

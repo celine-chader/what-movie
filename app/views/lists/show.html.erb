@@ -2,5 +2,9 @@
 <%= @list.name %>
 </h3>
 
+<%= @list.favorites.movies.each do |movie| %>
+  <%= movie.title %>
+<% end %>
+
 <%= link_to "Edit my list's name", edit_list_path(@list) %>
 <%= link_to "Back to my lists", lists_path %>

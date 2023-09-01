@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/movies", to: "movies#index"
   get "/movies/:id", to: "movies#show"
+
   get "/lists", to: "lists#index"
   get "/lists/new", to: "lists#new", as: :new_list
   get "/lists/:id", to: "lists#show", as: :list
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   patch "/lists/:id", to: "lists#update"
   delete "/lists/:id", to: "lists#destroy"
 
+  get "/"
 end

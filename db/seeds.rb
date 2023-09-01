@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+Movie.destroy_all
 Movie.create(title: "Wonder Woman 1984", description: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s")
 Movie.create(title: "The Shawshank Redemption", description: "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison")
 Movie.create(title: "Titanic", description: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.")
 Movie.create(title: "Ocean's Eight", description: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.")
+puts "finished seeding"

@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     @favorite.movie = @movie
     @list = @favorite.list
     if @favorite.save
-      redirect_to movie_path(@movie)
+      redirect_to movie_path(@movie), notice: "This movie was added to the list !"
     else
       render "/movies/show", status: :unprocessable_entity
     end

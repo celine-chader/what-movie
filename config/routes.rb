@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :favorites, only: [:new, :create]
   end
 
+  get "/movies/:id", to: "movies#random", as: :random_movie
+
   get "/lists", to: "lists#index"
   get "/lists/new", to: "lists#new", as: :new_list
   get "lists/:id", to: "lists#show", as: :list

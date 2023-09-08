@@ -1,12 +1,30 @@
-<% @movies.each do |movie| %>
-  <%= link_to movie.title, movie_path(movie) %>
-  <ol>
-    <li>Year : <%= movie.year %></li>
-    <li>Director : <%= movie.director %></li>
-    <li>Description : <%= movie.description %></li>
-    <li>Category : <%= movie.category %></li>
-  </ol>
-<% end %>
+<h3>🎬 Find a movie </h3>
+
+<div>
+  <h5>Pick randomly !</h5>
+  <%= link_to "pick", random_movie_path(movie) %>
+</div>
+
+<div>
+  <%= form_with url: movies_path, method: :get do |f| %>
+    <%= f.text_field :query,
+      class: "form-control",
+      placeholder: "Batman, Nolan, Titanic...",
+      value: params[:query] %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+  <div>
+    <% @movies.each do |movie| %>
+      <%= link_to movie.title, movie_path(movie) %>
+      <ol>
+        <li>Year : <%= movie.year %></li>
+        <li>Director : <%= movie.director %></li>
+        <li>Description : <%= movie.description %></li>
+        <li>Category : <%= movie.category %></li>
+      </ol>
+    <% end %>
+  </div>
 
 <%= link_to "Home", root_path %>
-

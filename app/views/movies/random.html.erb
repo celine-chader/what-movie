@@ -1,0 +1,17 @@
+<h3>🎬 We picked... </h3>
+
+<%= link_to @movie.title, movie_path(@movie) %>
+<%= @movie.description %>
+<%= @movie.director %>
+<%= @movie.year %>
+
+<div class="d-flex justify-content-between">
+  <div><%= link_to movie_path(@movie) do %>
+    <button class="btn btn-dark"><i class="fa-solid fa-plus"></i> Tell me more about it</button>
+    <% end %>
+  </div>
+  <div><%= link_to random_movie_path do %>
+    <button class="btn btn-outline-dark"><i class="fa-solid fa-rotate-right"></i> Another pick please</button>
+    <% end %>
+  </div>
+</div>

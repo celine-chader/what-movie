@@ -7,12 +7,12 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  get "/movies/random", to: "movies#random", as: :random_movie
   get "/movies", to: "movies#index"
   resources :movies, only: [:show] do
     resources :favorites, only: [:new, :create]
   end
 
-  get "/movies/:id", to: "movies#random", as: :random_movie
 
   get "/lists", to: "lists#index"
   get "/lists/new", to: "lists#new", as: :new_list

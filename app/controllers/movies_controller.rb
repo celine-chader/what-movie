@@ -15,7 +15,6 @@ class MoviesController < ApplicationController
 
   def random
     @movies = Movie.all
-    @movies.sample = @movie
-    redirect_to movie_path(@movie)
+    @movie = @movies[rand(@movies.length)]
   end
 end

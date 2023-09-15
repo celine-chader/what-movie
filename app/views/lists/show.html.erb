@@ -1,12 +1,14 @@
-<h3>
-<%= @list.name %>
-</h3>
+<div class="container">
+  <h3>
+  <%= @list.name %>
+  </h3>
 
-<% @list.favorites.each do |favorite| %>
-  <%= favorite.movie.title %>
-  <%= link_to "Delete", destroy_fav_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-<% end %>
+  <% @list.favorites.each do |favorite| %>
+    <%= favorite.movie.title %>
+    <%= link_to "Delete", destroy_fav_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <% end %>
 
 
-<%= link_to "Edit my list's name", edit_list_path(@list) %>
-<%= link_to "Back to my lists", lists_path %>
+  <%= link_to "Edit my list's name", edit_list_path(@list) %>
+  <%= link_to "Back to my lists", lists_path %>
+</div>

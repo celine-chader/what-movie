@@ -1,30 +1,37 @@
-<h3>🎬 Find a movie </h3>
+<div class="container">
+  <h3>🎬 Find a movie </h3>
 
-<div>
-  <h5>Pick randomly !</h5>
-  <%= link_to "pick", random_movie_path %>
-</div>
+  <div class="card-lg">
+    <%= link_to "No idea ? Let's pick randomly !", random_movie_path %>
+  </div>
 
-<div>
-  <%= form_with url: movies_path, method: :get do |f| %>
-    <%= f.text_field :query,
-      class: "form-control",
-      placeholder: "Batman, Nolan, Titanic...",
-      value: params[:query] %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-  <div>
-    <% @movies.each do |movie| %>
-      <%= link_to movie.title, movie_path(movie) %>
-      <ol>
-        <li>Year : <%= movie.year %></li>
-        <li>Director : <%= movie.director %></li>
-        <li>Description : <%= movie.description %></li>
-        <li>Category : <%= movie.category %></li>
-      </ol>
+  <div class="form-search">
+    <%= form_with url: movies_path, method: :get do |f| %>
+      <%= f.text_field :query,
+        class: "form-control form-search",
+        placeholder: "Batman, Nolan, Titanic...",
+        value: params[:query] %>
+      <%= button_tag(type: "submit", class: "btn btn-dark form-search") do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
     <% end %>
   </div>
 
-<%= link_to "Home", root_path %>
+  <div class="d-flex flex-wrap justify-content-between">
+    <% @movies.each do |movie| %>
+      <div class="card mt-3" style="width: 18rem">
+        <img class="card-img-top" src="<%= movie.poster_url %>" alt="Card image cap">
+        <div class="card-body">
+          <h4><%= link_to movie.title, movie_path(movie) %></h4>
+          <ul class="card-text">
+            <li>Category : <%= movie.category %></li>
+            <li>Year : <%= movie.year %></li>
+            <li>Rating : <%= movie.rating %></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Home", root_path %>
+</div>

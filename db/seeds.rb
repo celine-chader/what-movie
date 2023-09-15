@@ -21,6 +21,9 @@ movies["results"].each do |movie|
     title: movie["original_title"],
     year: movie["release_date"],
     description: movie["overview"],
+    rating: movie["vote_average"],
+    poster_url: "https://image.tmdb.org/t/p/w500/#{movie["poster_path"]}",
+    category: movie["genre_ids"]
   )
 end
 

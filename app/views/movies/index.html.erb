@@ -1,35 +1,40 @@
 <div class="container">
-  <h3>🎬 Find a movie </h3>
-
-  <div class="card-lg">
-    <%= link_to "No idea ? Let's pick randomly !", random_movie_path %>
+  <div class="d-flex justify-content-between mt-3 mb-3">
+    <h3 class="mb-0">🎬 Find a movie </h3>
+    <div class="card-lg">
+      <%= link_to "No idea ? Let's pick randomly !", random_movie_path %>
+    </div>
   </div>
 
   <div class="form-search">
-    <%= form_with url: movies_path, method: :get do |f| %>
+    <%= form_with url: movies_path, method: :get, class: "d-flex" do |f| %>
       <%= f.text_field :query,
-        class: "form-control form-search",
+        class: "form-control form-search input",
         placeholder: "Batman, Nolan, Titanic...",
         value: params[:query] %>
-      <%= button_tag(type: "submit", class: "btn btn-dark form-search") do %>
+      <%= button_tag(type: "submit", class: "btn btn-dark form-search button") do %>
         <i class="fa-solid fa-magnifying-glass"></i>
       <% end %>
     <% end %>
   </div>
 
   <div class="d-flex flex-wrap justify-content-between">
-    <% @movies.each do |movie| %>
-      <div class="card mt-3" style="width: 18rem">
-        <img class="card-img-top" src="<%= movie.poster_url %>" alt="Card image cap">
-        <div class="card-body">
-          <h4><%= link_to movie.title, movie_path(movie) %></h4>
-          <ul class="card-text">
-            <li>Category : <%= movie.category %></li>
-            <li>Year : <%= movie.year %></li>
-            <li>Rating : <%= movie.rating %></li>
-          </ul>
+    <% if @movies.present? %>
+      <% @movies.each do |movie| %>
+        <div class="card mt-3" style="width: 18rem">
+          <img class="card-img-top" src="<%= movie.poster_url %>" alt="Card image cap">
+          <div class="card-body">
+            <h4><%= link_to movie.title, movie_path(movie) %></h4>
+            <ul class="card-text">
+              <li>Category : <%= movie.category %></li>
+              <li>Year : <%= movie.year %></li>
+              <li>Rating : <%= movie.rating %></li>
+            </ul>
+          </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+      <p>Sorry, not results !</p>
     <% end %>
   </div>
 

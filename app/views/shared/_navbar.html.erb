@@ -8,7 +8,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <a class="nav-link" href="/movies">All movies</a>
+            <%= link_to movies_path do %>
+              <button class= "btn btn-outline-dark me-3">All movies</button>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
